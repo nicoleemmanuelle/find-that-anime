@@ -5,7 +5,7 @@ function Footer() {
             <footer className="bg-primary-subtle text-center text-lg-start">
                 <div className="text-center p-3 text-primary" style={{backgroundColor: 'rgba(0, 0, 0, 0.05)'}}>
                     &copy; {new Date().getFullYear()} Copyright:&nbsp;
-                    <a className="text-primary" href="/"><strong>find that anime</strong></a>
+                    <a className="text-primary" href="/find-that-anime/"><strong>find that anime</strong></a>
                     &nbsp;| Developed by:&nbsp;
                     <a className="text-primary" href="https://www.linkedin.com/in/nicole-emmanuelle-do%C3%B1a/" target="_blank"><strong>Nicole Emmanuelle B. Doña</strong></a>
                     &nbsp;| API used:&nbsp; 
