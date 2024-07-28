@@ -89,7 +89,7 @@ function ResultsPage() {
             <div className="col search-section-container">
                 <div className="search-section">
                     <div className="saved-image-container card bg-primary shadow" >
-                        <a id="search-button" className="btn btn-primary" href="/" role="button"><strong>Search</strong></a>
+                        <a id="search-button" className="btn btn-primary" href="/find-that-anime/" role="button"><strong>Search</strong></a>
                     </div>
                     <div className="saved-image-container card bg-primary shadow" >
                         <div className="card-body">
