@@ -50,7 +50,7 @@ function Search() {
     return (
         <div id="search-page" className="d-flex justify-content-center align-items-center min-vh-100">
             <div className="search-container mx-auto border rounded bg-primary-subtle">
-                <img src="src/assets/find-that-anime-logo.png"></img>
+                <img src="find-that-anime-logo.png"></img>
                 <h1 className="text-light">Upload a screenshot of the anime you want to find</h1>
                 <form onSubmit={handleSubmit} id="image-form">
                     <div className="input-group">
