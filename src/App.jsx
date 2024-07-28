@@ -12,7 +12,7 @@ function App() {
       <Header />
       <Router>
         <Routes>
-          <Route exact path="/" element={<Search/>} />
+          <Route exact path="/find-that-anime" element={<Search/>} />
           <Route path="/results" element={<ResultsPage/>} />
         </Routes>
       </Router>
