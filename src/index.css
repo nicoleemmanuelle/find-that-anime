@@ -1,0 +1,147 @@
+body {
+  min-height: 100vh;
+  min-width: 420px;
+  font-family: "Inter", sans-serif;
+}
+
+/* CURSOR */
+.circle {
+  height: 24px;
+  width: 24px;
+  border-radius: 24px;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999999;
+  /* so that it stays on top of all other elements */
+}
+
+/* HEADER */
+.navbar-brand {
+  margin-left: 10%;
+}
+
+.navbar-brand img {
+  height: 30px;
+}
+
+header {
+  padding-bottom: 0px;
+}
+
+#light-and-dark-mode {
+  margin-right: 10%;
+}
+
+/* SEARCH PAGE */
+#search-page {
+  padding: 114.30px 0 -114.30px 0;
+  height: 100vh;
+  margin: auto 1rem;
+}
+.search-container {
+  position: relative;
+  max-width: 40rem;
+  min-width: 20rem;
+  height: 300px;
+  /* top: 25%; */
+  text-align: center;
+  padding: 40px 30px;
+}
+
+.search-container img {
+  height: 50px;
+}
+
+.search-container h1 {
+  padding: auto;
+}
+
+#image-form {
+  position: absolute;
+  margin: 0 auto;
+  left: 10%;
+  right: 10%;
+  bottom: 40px;
+}
+
+
+/* RESULTS PAGE */
+#results-page {
+  margin: 57.15px auto 0 auto;
+}
+
+#search-button {
+  font-size: large;
+}
+
+.saved-image-container {
+  max-width: 30rem;
+  min-width: 20rem;
+  overflow: hidden;
+  margin: 1.5rem 0 1.5rem auto;
+  /* position: fixed; */
+  width: 100%;
+}
+
+.saved-image {
+  aspect-ratio: auto;
+}
+
+.saved-image-container .card-body .card-title {
+  margin: 0;
+  font-size: medium;
+}
+
+.results {
+  max-width: 30rem;
+  min-width: 20rem;
+  overflow: hidden;
+  margin: 1.5rem auto 1.5rem 0;
+}
+
+ol {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.rank {
+  width: 2rem;
+  margin-right: 0.5rem;
+}
+
+h2,
+.card-title {
+  font-size: larger;
+  font-weight: bold;
+}
+
+p,
+.card-text {
+  font-size: medium;
+}
+
+.card-text {
+  margin: 0rem 0rem 0rem 2.5rem;
+}
+
+@media only screen and (max-width: 1400px) {
+  .saved-image-container {
+    position: static;
+  }
+}
+
+@media only screen and (max-width: 993px) {
+  .results {
+    margin: 1.5rem auto;
+  }
+
+  .saved-image-container {
+    margin: 1.5rem auto;
+  }
+}
