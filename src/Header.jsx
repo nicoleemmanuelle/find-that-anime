@@ -6,6 +6,7 @@ function Header() {
         <header>
             <nav className="navbar navbar-light bg-light fixed-top bg-primary-subtle">
                 <a className="navbar-brand" href="/">
+                        <img src="find-that-anime-main-logo.png" alt=""></img>
                         <img src="find-that-anime-logo.png" alt=""></img>
                         {/* <img src="src/assets/find-that-anime-logo.png" alt=""></img> */}
                 </a>
