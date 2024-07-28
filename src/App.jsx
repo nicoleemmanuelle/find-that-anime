@@ -10,9 +10,9 @@ function App() {
   return (
     <>
       <Header />
-      <Router>
+      <Router basename="/find-that-anime">
         <Routes>
-          <Route exact path="/find-that-anime" element={<Search/>} />
+          <Route exact path="/" element={<Search/>} />
           <Route path="/results" element={<ResultsPage/>} />
         </Routes>
       </Router>
