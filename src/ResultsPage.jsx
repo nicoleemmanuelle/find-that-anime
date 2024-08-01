@@ -5,8 +5,8 @@ import queryString from 'query-string';
 function ResultsPage() {
 
     const savedImage = 'data:image/png;base64,' + localStorage.getItem('savedImage');
-    const location = useLocation();
-    const queryParams = queryString.parse(location.search);
+    // const location = useLocation();
+    // const queryParams = queryString.parse(location.search);
     // const data = JSON.parse(queryParams.data);
     const data = JSON.parse(localStorage.getItem('data'));
 
