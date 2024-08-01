@@ -4,15 +4,16 @@ import queryString from 'query-string';
 
 function ResultsPage() {
 
-    const savedImage = 'data:image/png;base64,' + sessionStorage.getItem('savedImage');
+    const savedImage = 'data:image/png;base64,' + localStorage.getItem('savedImage');
     const location = useLocation();
     const queryParams = queryString.parse(location.search);
     // const data = JSON.parse(queryParams.data);
-    const data = JSON.parse(sessionStorage.getItem('data'));
+    const data = JSON.parse(localStorage.getItem('data'));
 
     if (!data || !data['result'] || !Array.isArray(data['result'])) {
         return <div>Error: Invalid data</div>;
     }
+    
 
     const resultsCount = data['result'].length;
     const elements = [];
@@ -40,7 +41,7 @@ function ResultsPage() {
 
     for (let i = 0; i < resultsCount; i++) {
         const result = data['result'][i];
-        console.log(result['anilist']['title']['english']);
+        // console.log(result['anilist']['title']['english']);
         elements.push(
             React.createElement('li', { key: i },
                 React.createElement('div', null,
