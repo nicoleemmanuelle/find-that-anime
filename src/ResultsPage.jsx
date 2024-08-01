@@ -7,9 +7,11 @@ function ResultsPage() {
     const savedImage = 'data:image/png;base64,' + localStorage.getItem('savedImage');
     const location = useLocation();
     const queryParams = queryString.parse(location.search);
-    const data = JSON.parse(queryParams.data);
+    // const data = JSON.parse(queryParams.data);
+    const results = JSON.parse(queryParams.data);
 
-    const resultsCount = data['result'].length;
+    // const resultsCount = data['result'].length;
+    const resultsCount = results.length;
     const elements = [];
 
     function convertToPercent(inputString) {
@@ -34,7 +36,8 @@ function ResultsPage() {
     }
 
     for (let i = 0; i < resultsCount; i++) {
-        const result = data['result'][i];
+        // const result = data['result'][i];
+        const result = results[i];
         // console.log(result['anilist']['title']['english']);
         elements.push(
             React.createElement('li', { key: i },
