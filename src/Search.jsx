@@ -39,12 +39,9 @@ function Search() {
             const data = await response.json();
             // console.log(data); // handle the response data as needed
 
-            // Save data to sessionStorage
-            localStorage.setItem('data', JSON.stringify(data));
-
             // Redirect to another page, for example to a 'results' page
-            navigateTo("/results");
-            // navigateTo(`/results?data=${encodeURIComponent(JSON.stringify(data))}`);
+            // navigateTo("/results");
+            navigateTo(`/results?data=${encodeURIComponent(JSON.stringify(data))}`);
 
         } catch (error) {
             console.error('Error:', error);
