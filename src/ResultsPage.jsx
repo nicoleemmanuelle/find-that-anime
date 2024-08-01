@@ -4,10 +4,15 @@ import queryString from 'query-string';
 
 function ResultsPage() {
 
-    const savedImage = 'data:image/png;base64,' + localStorage.getItem('savedImage');
+    const savedImage = 'data:image/png;base64,' + sessionStorage.getItem('savedImage');
     const location = useLocation();
     const queryParams = queryString.parse(location.search);
-    const data = JSON.parse(queryParams.data);
+    // const data = JSON.parse(queryParams.data);
+    const data = JSON.parse(sessionStorage.getItem('data'));
+
+    if (!data || !data['result'] || !Array.isArray(data['result'])) {
+        return <div>Error: Invalid data</div>;
+    }
 
     const resultsCount = data['result'].length;
     const elements = [];

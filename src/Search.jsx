@@ -23,7 +23,7 @@ function Search() {
             const reader = new FileReader();
             reader.onload = function (event) {
                 const base64String = event.target.result.split(',')[1]; // Get Base64 string
-                localStorage.setItem('savedImage', base64String); // Save to localStorage
+                sessionStorage.setItem('savedImage', base64String); // Save to sessionStorage
             };
             reader.readAsDataURL(file); // Convert the image to a Base64 string
         } else {
@@ -39,8 +39,12 @@ function Search() {
             const data = await response.json();
             // console.log(data); // handle the response data as needed
 
+            // Save data to sessionStorage
+            sessionStorage.setItem('data', JSON.stringify(data));
+
             // Redirect to another page, for example to a 'results' page
-            navigateTo(`/results?data=${encodeURIComponent(JSON.stringify(data))}`);
+            navigateTo("/results");
+            // navigateTo(`/results?data=${encodeURIComponent(JSON.stringify(data))}`);
 
         } catch (error) {
             console.error('Error:', error);
