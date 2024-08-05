@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@400;700&display=swap"
     rel="stylesheet">
-  <script type="module" crossorigin src="/find-that-anime/assets/index-COOxMSf2.js"></script>
+  <script type="module" crossorigin src="/find-that-anime/assets/index-Bza9FGvS.js"></script>
   <link rel="stylesheet" crossorigin href="/find-that-anime/assets/index-CMnD4FQF.css">
 </head>
 
@@ -33,6 +33,8 @@
       console.log('The page has loaded!');
       var element = document.body;
       element.dataset.bsTheme = localStorage.getItem('mode') != null ? localStorage.getItem('mode') : "light";
+
+      const data = JSON.parse(sessionStorage.getItem('data'));
     });
 
   </script>
