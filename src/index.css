@@ -79,7 +79,7 @@ header {
 
 .saved-image-container {
   max-width: 30rem;
-  min-width: 310px;
+  min-width: 315px;
   overflow: hidden;
   margin: 1.5rem 0 1.5rem auto;
   /* position: fixed; */
@@ -97,7 +97,7 @@ header {
 
 .results {
   max-width: 30rem;
-  min-width: 310px;
+  min-width: 315px;
   overflow: hidden;
   margin: 1.5rem auto 1.5rem 0;
 }
