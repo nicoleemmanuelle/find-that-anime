@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Header />
-      <Router basename="/find-that-anime">
+      <Router basename="/find-that-anime/">
         <Routes>
           <Route exact path="/" element={<Search/>} />
           <Route path="/results" element={<ResultsPage/>} />

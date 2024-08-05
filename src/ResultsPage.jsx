@@ -1,93 +1,88 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import queryString from 'query-string';
 
 function ResultsPage() {
-
-    const savedImage = 'data:image/png;base64,' + localStorage.getItem('savedImage');
+    const navigate = useNavigate();
     const location = useLocation();
-    const queryParams = queryString.parse(location.search);
-    // const data = JSON.parse(queryParams.data);
-    // const results = JSON.parse(queryParams.data);
-    // const results = JSON.parse(sessionStorage.getItem('results'));
-    // const data = JSON.parse(localStorage.getItem('data'));
-    const data = location.state?.data;
-    console.log(data);
-
-    // if (!data || !data['result'] || !Array.isArray(data['result'])) {
-    //     return <div>Error: Invalid data</div>;
-    // }
-    
-
-    const resultsCount = data['result'].length;
-    // const resultsCount = results.length;
+    const resdata = sessionStorage.getItem('resultsData');
+    const savedImage = 'data:image/png;base64,' + localStorage.getItem('savedImage');
     const elements = [];
 
-    function convertToPercent(inputString) {
-        const percent = (parseFloat(inputString) * 100).toFixed(2);
+    // Use useEffect to handle redirection if there's no resdata
+    useEffect(() => {
+        if (!resdata) {
+            navigate("/");
+        }
+    }, [navigate, resdata]);
 
-        return percent;
-    }
+    if (resdata) {
+        const queryParams = queryString.parse(location.search);
+        const data = JSON.parse(resdata);
+        console.log(data);
 
-    function convertSecondsToHHMMSS(seconds) {
-        // Step 1: Extract hours, minutes, and seconds
-        const hours = Math.floor(seconds / 3600);
-        const minutes = Math.floor((seconds % 3600) / 60);
-        const secs = seconds % 60;
+        const resultsCount = data['result'].length;
 
-        // Step 2: Format values to be two digits
-        const formattedHours = String(hours).padStart(2, '0');
-        const formattedMinutes = String(minutes).padStart(2, '0');
-        const formattedSeconds = String(secs.toFixed(2)).padStart(2, '0'); // padStart with 6 to account for seconds and two decimal places
+        function convertToPercent(inputString) {
+            const percent = (parseFloat(inputString) * 100).toFixed(2);
+            return percent;
+        }
 
-        // Step 3: Combine and return
-        return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
-    }
+        function convertSecondsToHHMMSS(seconds) {
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
 
-    for (let i = 0; i < resultsCount; i++) {
-        const result = data['result'][i];
-        // const result = results[i];
-        // console.log(result['anilist']['title']['english']);
-        elements.push(
-            React.createElement('li', { key: i },
-                React.createElement('div', null,
-                    React.createElement('div', { className: 'results card shadow' },
-                        React.createElement('div', { className: 'ratio ratio-16x9' },
-                            React.createElement('iframe', {
-                                src: result['video'] + "&size=l",
-                                sandbox: '',
-                                title: 'Example Iframe'
-                            })
-                        ),
-                        React.createElement('div', { className: 'card-body' },
-                            React.createElement('div', null,
-                                React.createElement('h2', { className: 'card-title' },
-                                    React.createElement('span', {
-                                        className: 'badge text-bg-primary rank'
-                                    }, i + 1),
-                                    React.createElement('a', {
-                                        href: "https://myanimelist.net/anime/" + result['anilist']['idMal'],
-                                        target: "_blank"
-                                    }, result['anilist']['title']['english'] != null ? result['anilist']['title']['english'] : result['anilist']['title']['native']),
+            const formattedHours = String(hours).padStart(2, '0');
+            const formattedMinutes = String(minutes).padStart(2, '0');
+            const formattedSeconds = String(secs.toFixed(2)).padStart(2, '0');
+
+            return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+        }
+
+        for (let i = 0; i < resultsCount; i++) {
+            const result = data['result'][i];
+            elements.push(
+                React.createElement('li', { key: i },
+                    React.createElement('div', null,
+                        React.createElement('div', { className: 'results card shadow' },
+                            React.createElement('div', { className: 'ratio ratio-16x9' },
+                                React.createElement('iframe', {
+                                    src: result['video'] + "&size=l",
+                                    sandbox: '',
+                                    title: 'Example Iframe'
+                                })
+                            ),
+                            React.createElement('div', { className: 'card-body' },
+                                React.createElement('div', null,
+                                    React.createElement('h2', { className: 'card-title' },
+                                        React.createElement('span', {
+                                            className: 'badge text-bg-primary rank'
+                                        }, i + 1),
+                                        React.createElement('a', {
+                                            href: "https://myanimelist.net/anime/" + result['anilist']['idMal'],
+                                            target: "_blank"
+                                        }, result['anilist']['title']['english'] != null ? result['anilist']['title']['english'] : result['anilist']['title']['native']),
+                                    ),
                                 ),
-                            ),
-                            React.createElement('p', { className: 'card-text' },
-                                React.createElement('strong', null, "Native Title: "), result['anilist']['title']['native']),
-                            React.createElement('p', { className: 'card-text' },
-                                React.createElement('strong', null, "Similarity: "), convertToPercent(result['similarity']) + "%"),
-                            React.createElement('p', { className: 'card-text' },
-                                React.createElement('strong', null, "Episode: "), result['episode']),
-                            React.createElement('p', { className: 'card-text' },
-                                React.createElement('strong', null, "Timestamp: "), convertSecondsToHHMMSS(result['from']) + " - " + convertSecondsToHHMMSS(result['to'])
-                            ),
+                                React.createElement('p', { className: 'card-text' },
+                                    React.createElement('strong', null, "Native Title: "), result['anilist']['title']['native']),
+                                React.createElement('p', { className: 'card-text' },
+                                    React.createElement('strong', null, "Similarity: "), convertToPercent(result['similarity']) + "%"),
+                                React.createElement('p', { className: 'card-text' },
+                                    React.createElement('strong', null, "Episode: "), result['episode']),
+                                React.createElement('p', { className: 'card-text' },
+                                    React.createElement('strong', null, "Timestamp: "), convertSecondsToHHMMSS(result['from']) + " - " + convertSecondsToHHMMSS(result['to'])
+                                ),
+
+                            )
 
                         )
-
                     )
-                )
 
-            ),
-        )
+                ),
+            );
+        }
     }
 
     const list = React.createElement(
@@ -114,7 +109,6 @@ function ResultsPage() {
                     </div>
                 </div>
             </div>
-            {/* <pre>{JSON.stringify(data['result'][0], null, 2)}</pre> */}
             <div className="col">
                 <div>
                     <div id="results-section">

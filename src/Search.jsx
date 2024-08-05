@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Search() {
     const [image, setImage] = useState(null);
-    const navigateTo = useNavigate(); // Get the history object
+    const navigate = useNavigate(); // Get the history object
 
     const handleImageChange = (event) => {
         setImage(event.target.files[0]);
@@ -43,8 +43,8 @@ function Search() {
             // navigateTo("/results");
             const result = data['result'];
             const slicedResult = result.slice(0, 1);
-            localStorage.setItem('data', JSON.stringify(data));
-            navigateTo('/results', { state: { data } });
+            sessionStorage.setItem('resultsData', JSON.stringify(data));
+            navigate('/results', { state: { data } });
             // navigateTo(`/results?data=${encodeURIComponent(JSON.stringify(slicedResult))}`);
 
         } catch (error) {
