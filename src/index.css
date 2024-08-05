@@ -1,6 +1,6 @@
 body {
   min-height: 100vh;
-  min-width: 390px;
+  min-width: 330px;
   font-family: "Inter", sans-serif;
 }
 
@@ -79,7 +79,7 @@ header {
 
 .saved-image-container {
   max-width: 30rem;
-  min-width: 313px;
+  min-width: 310px;
   overflow: hidden;
   margin: 1.5rem 0 1.5rem auto;
   /* position: fixed; */
@@ -97,7 +97,7 @@ header {
 
 .results {
   max-width: 30rem;
-  min-width: 313px;
+  min-width: 310px;
   overflow: hidden;
   margin: 1.5rem auto 1.5rem 0;
 }
