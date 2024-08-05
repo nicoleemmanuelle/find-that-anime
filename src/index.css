@@ -67,6 +67,10 @@ header {
   bottom: 40px;
 }
 
+#loading-button {
+  display: none;
+}
+
 
 /* RESULTS PAGE */
 #results-page {

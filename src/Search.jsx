@@ -12,6 +12,9 @@ function Search() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        document.getElementById("loading-button").style.display = "inline";
+        document.getElementById("submit-button").style.display = "none";
+
         const formData = new FormData();
         formData.append('image', image);
 
@@ -59,7 +62,11 @@ function Search() {
                 <form onSubmit={handleSubmit} id="image-form">
                     <div className="input-group">
                         <input id="imageInput" className="form-control" type="file" name="image" accept="image/*" required onChange={handleImageChange} />
-                        <input className="btn btn-primary focus-ring text-decoration-none border rounded-end bg-purple" type="submit" />
+                        <input id="submit-button" className="btn btn-primary focus-ring text-decoration-none border rounded-end bg-purple" type="submit" />
+                        <button id="loading-button" className="btn btn-primary" type="button" disabled="">
+                            <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                            <span role="status">Loading...</span>
+                        </button>
                     </div>
                 </form>
             </div>
