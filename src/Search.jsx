@@ -37,7 +37,6 @@ function Search() {
                 body: formData,
             });
             const data = await response.json();
-            // console.log(data); // handle the response data as needed
 
             // Redirect to another page, for example to a 'results' page
             // navigateTo("/results");
