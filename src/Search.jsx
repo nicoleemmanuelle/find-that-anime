@@ -43,7 +43,9 @@ function Search() {
             // navigateTo("/results");
             const result = data['result'];
             const slicedResult = result.slice(0, 1);
-            navigateTo(`/results?data=${encodeURIComponent(JSON.stringify(slicedResult))}`);
+            sessionStorage.setItem('data', JSON.stringify(data));
+            navigateTo("/results");
+            // navigateTo(`/results?data=${encodeURIComponent(JSON.stringify(slicedResult))}`);
 
         } catch (error) {
             console.error('Error:', error);
