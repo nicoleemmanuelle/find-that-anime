@@ -19,7 +19,7 @@ function ResultsPage() {
     if (resdata) {
         const queryParams = queryString.parse(location.search);
         const data = JSON.parse(resdata);
-        console.log(data);
+        // console.log(data);
 
         const resultsCount = data['result'].length;
 
