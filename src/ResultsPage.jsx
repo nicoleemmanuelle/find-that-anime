@@ -10,11 +10,13 @@ function ResultsPage() {
     // const data = JSON.parse(queryParams.data);
     // const results = JSON.parse(queryParams.data);
     // const results = JSON.parse(sessionStorage.getItem('results'));
-    const data = JSON.parse(sessionStorage.getItem('data'));
+    // const data = JSON.parse(localStorage.getItem('data'));
+    const data = location.state?.data;
+    console.log(data);
 
-    if (!data || !data['result'] || !Array.isArray(data['result'])) {
-        return <div>Error: Invalid data</div>;
-    }
+    // if (!data || !data['result'] || !Array.isArray(data['result'])) {
+    //     return <div>Error: Invalid data</div>;
+    // }
     
 
     const resultsCount = data['result'].length;
