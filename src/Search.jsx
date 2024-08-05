@@ -41,7 +41,9 @@ function Search() {
 
             // Redirect to another page, for example to a 'results' page
             // navigateTo("/results");
-            navigateTo(`/results?data=${encodeURIComponent(JSON.stringify(data['result']))}`);
+            const result = data['result'];
+            const slicedResult = result.slice(0, 5);
+            navigateTo(`/results?data=${encodeURIComponent(JSON.stringify(slicedResult))}`);
 
         } catch (error) {
             console.error('Error:', error);
